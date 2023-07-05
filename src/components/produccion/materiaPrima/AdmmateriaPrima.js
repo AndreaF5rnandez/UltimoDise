@@ -40,6 +40,11 @@ export class AdmListaMateriaPrima extends React.Component {
       },
     });
   };
+
+
+
+
+
   mostartModalReporte = () => {
     this.setState({ modalReporte: true });
   };

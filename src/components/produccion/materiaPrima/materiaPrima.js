@@ -36,6 +36,7 @@ export class ListaMateriaPrima extends React.Component {
     modalEditar: false,
     modalFiltrar: false,
     modalReporte: false,
+    modalINFO: false,
   };
   handleChange = (e) => {
     this.setState({
@@ -45,6 +46,20 @@ export class ListaMateriaPrima extends React.Component {
       },
     });
   };
+
+  mostartModalINFO = (registro) => {
+    this.setState({ modalINFO: true, form: registro });
+  };
+  ocultarModalINFO = () => {
+    this.setState({ modalINFO: false });
+  };
+
+
+
+
+
+
+
   mostartModalReporte = () => {
     this.setState({ modalReporte: true });
   };
@@ -194,6 +209,7 @@ export class ListaMateriaPrima extends React.Component {
                             class="bi bi-journals"
                             viewBox="0 0 16 16"
                             type="button"
+                            onClick={() => this.mostartModalINFO(elemento)}
                             data-bs-whatever="@getbootstrap"
                           >
                             <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2z" />
@@ -238,6 +254,89 @@ export class ListaMateriaPrima extends React.Component {
               </div>
             </Container>
           </div>
+
+          <Modal isOpen={this.state.modalINFO}>
+            <ModalHeader>
+              <div>
+                <h3> Materia Prima</h3>
+              </div>
+            </ModalHeader>
+            <ModalBody>
+              <FormGroup>
+                <label>id:</label>
+                <input
+                  value={this.state.form.id}
+                  className="form-control"
+                  readOnly
+                  type="text"
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <label>Sector:</label>
+                <input
+                  value={this.state.form.Sector}
+                  onChange={this.handleChange}
+                  className="form-control"
+                  name="Sector"
+                  type="text"
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <label>Categoria:</label>
+                <input
+                  value={this.state.form.Categoria}
+                  onChange={this.handleChange}
+                  className="form-control"
+                  name="Categoria"
+                  type="text"
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <label>Cantidad:</label>
+                <input
+                  value={this.state.form.Cantidad}
+                  onChange={this.handleChange}
+                  className="form-control"
+                  name="Cantidad"
+                  type="text"
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <label>Peso(kg):</label>
+                <input
+                  value={this.state.form.Peso}
+                  className="form-control"
+                  name="Peso"
+                  type="text"
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <label>Fecha de ingreso:</label>
+                <input
+                  value={this.state.form.Fecha}
+                  className="form-control"
+                  name="Fecha-de-ingreso"
+                  type="text"
+                />
+              </FormGroup>
+            </ModalBody>
+            <ModalFooter>
+              <Button onClick={() => this.ocultarModalINFO()} >
+                Cancelar
+              </Button>
+            </ModalFooter>
+          </Modal>
+
+
+
+
+
+
 
           <Modal isOpen={this.state.modalEditar}>
             <ModalHeader>
