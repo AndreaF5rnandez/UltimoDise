@@ -1,0 +1,35 @@
+.expandable-button {
+  background-color: blue;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.expandable-button.expanded {
+  transform: scale(1.2);
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.input-container input,
+.input-container button {
+  margin: 5px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.input-container button {
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+}

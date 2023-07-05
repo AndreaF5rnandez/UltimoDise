@@ -1,0 +1,69 @@
+* {
+  box-sizing: border-box;
+}
+.body{
+  background-image: url(asset/img/Diseño\ sin\ título\ \(11\).png);
+}
+.fondo{
+  background-image: url(asset/img/reci4.png);
+}
+.imgRecii {
+  width: 100%;
+  height: 100hv;
+  opacity: 0.25;
+}
+.flexa {
+  display: flex;
+  flex-direction: column;
+}
+.flexpadre {
+  display: flex;
+  justify-content: center;
+}
+.flex {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.FlexPadre {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+.FlexHijo {
+  display: flex;
+  justify-content: space-around;
+  margin: 30px;
+}
+
+.FlexHijo1 div button {
+  width: 100%;
+  height: 100%;
+}
+
+.FlexHijo div {
+  width: 15%;
+  height: 100px;
+}
+
+.FlexHijo div button {
+  width: 100%;
+  height: 100%;
+}
+
+.adm h1 {
+  color: #d2d0d0;
+}
+
+.invisible {
+  text-decoration: none;
+  color: #ffffff; /* Color del texto */
+  /* Otros estilos opcionales */
+}
+
+a.my-link {
+  text-decoration: none;
+  color: #ffffff;
+}

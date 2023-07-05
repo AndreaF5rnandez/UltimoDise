@@ -1,0 +1,173 @@
+.contenedor-boton {
+  padding-top: 12px;
+  padding-bottom: 6px;
+}
+
+.boton-foot {
+  border-radius: 4px;
+  border: 0 transparent;
+}
+
+.cancelar__modal {
+  position: relative;
+  right: 250px;
+
+  padding: 8px;
+  color: aliceblue;
+  background: linear-gradient(
+    148deg,
+    rgb(255, 76, 76) 0%,
+    rgb(199, 41, 41) 100%
+  );
+}
+
+.cancelar__modal:hover {
+  position: relative;
+  right: 250px;
+
+  margin: -4px;
+  color: aliceblue;
+
+  background: linear-gradient(4deg, rgb(255, 76, 76) 0%, rgb(199, 41, 41) 100%);
+  color: aliceblue;
+
+  font-size: larger;
+  font-weight: 500;
+
+  transition: all, 0.2s;
+}
+
+.imprimir__modal {
+  /* position: relative;
+      left: 400px; */
+  padding: 8px;
+  position: relative;
+
+  right: 30px;
+  color: aliceblue;
+  background: linear-gradient(148deg, rgb(1, 110, 16) 0%, rgb(3, 145, 17) 100%);
+}
+
+.imprimir__modal:hover {
+  margin: -4px;
+  /* position: relative;
+        left: 400px; */
+  padding: 8px;
+  position: relative;
+  color: aliceblue;
+  background: linear-gradient(4deg, rgb(1, 110, 16) 0%, rgb(3, 145, 17) 100%);
+
+  font-size: larger;
+  font-weight: 500;
+
+  transition: all, 0.2s;
+}
+
+.imprimir {
+  /* position: relative;
+    left: 400px; */
+  padding: 8px;
+  font-weight: 500;
+  color: aliceblue;
+  margin-right: 20px;
+  background: linear-gradient(148deg, rgb(1, 110, 16) 0%, rgb(3, 145, 17) 100%);
+}
+
+.imprimir:hover {
+  /* position: relative;
+    left: 400px; */
+  padding: 8px;
+  font-size: larger;
+  font-weight: 500;
+  box-shadow: 0px 10px 20px rgb(95, 95, 95);
+  margin-right: 20px;
+  background: linear-gradient(4deg, rgb(1, 110, 16) 0%, rgb(3, 145, 17) 100%);
+  transition: all, 0.3s;
+}
+
+/* parte del Checkbox */
+
+.modal-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.botonC {
+  position: relative;
+  width: 22px;
+  height: 22px;
+
+  transition: all, 0.2s;
+}
+.botonC:checked {
+  border: none;
+  border-radius: 10px;
+  transition: all, 0.2s;
+}
+
+.botonC:focus {
+  width: 24px;
+  height: 24px;
+
+  border: none;
+  outline: none;
+  box-shadow: 0px 0px 12px;
+
+  transition: all, 0.2s;
+}
+
+.VerMas {
+  /* position: relative;
+    left: 400px; */
+  font-weight: 500;
+  color: aliceblue;
+  margin-right: 20px;
+  background: linear-gradient(148deg, rgb(1, 110, 16) 0%, rgb(3, 145, 17) 100%);
+}
+
+.VerMas:hover {
+  /* position: relative;
+    left: 400px; */
+  box-shadow: 0px 10px 20px rgb(95, 95, 95);
+  background: linear-gradient(4deg, rgb(1, 110, 16) 0%, rgb(3, 145, 17) 100%);
+  transition: all, 0.3s;
+}
+
+.VerMas:focus {
+  font-weight: 700;
+  border: none;
+  outline: none;
+  box-shadow: 0px 0px 12px black;
+
+  transition: all, 0.2s;
+}
+
+/* boton de cerrar el ver mas  */
+.cerrar__modal {
+  position: relative;
+  right: 250px;
+
+  padding: 8px;
+  color: aliceblue;
+  background: linear-gradient(
+    148deg,
+    rgb(255, 76, 76) 0%,
+    rgb(199, 41, 41) 100%
+  );
+}
+
+.cerrar__modal:hover {
+  position: relative;
+  right: 250px;
+
+  margin: -4px;
+  color: aliceblue;
+
+  background: linear-gradient(4deg, rgb(255, 76, 76) 0%, rgb(199, 41, 41) 100%);
+  color: aliceblue;
+
+  font-size: larger;
+  font-weight: 500;
+
+  transition: all, 0.2s;
+}

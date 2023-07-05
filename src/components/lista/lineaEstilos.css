@@ -1,0 +1,16 @@
+.centrado {
+  text-align: center;
+}
+
+.pegado {
+  position: sticky;
+  top: 0;
+  background-color: #dcdcdc;
+}
+
+.derecha {
+  text-align: end;
+}
+.imgReporte{
+  margin: 0px;
+}

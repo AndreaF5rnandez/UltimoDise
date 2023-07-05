@@ -1,0 +1,42 @@
+.icono {
+  width: 100px;
+}
+.nav4{
+  background: rgb(93,238,122);
+background: linear-gradient(90deg, rgba(93,238,122,1) 0%, rgba(49,194,101,1) 35%, rgba(14,85,46,0.9528186274509804) 100%);
+}
+.hamb__icon {
+  width: 32px;
+  margin: 0;
+  padding: 0;
+}
+.hamb__button {
+  background-color: rgba(255, 255, 255, 0.788);
+  padding: 2px;
+  margin: 0;
+  border: transparent;
+  border-radius: 20px;
+}
+
+.hamb__button:hover {
+  background-color: rgb(255, 255, 255);
+  padding: 2px;
+  margin: 0;
+  border: transparent;
+  border-radius: 12px;
+
+  box-shadow: 0px 0px 64px white;
+  transition: all, 0.2s;
+}
+.flexPadre {
+  display: flex;
+}
+.flesHIjo {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+
+.flesHIjo div {
+  margin-right: 20px;
+}

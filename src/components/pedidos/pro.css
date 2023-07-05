@@ -1,0 +1,120 @@
+
+
+.fondo {
+  box-sizing: border-box;
+  background: #f2f2f2;
+  padding: 20px;
+}
+/* Cuadro1*/
+.flexpadre {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.flex {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.ID {
+  display: flex;
+  width: 35%;
+  margin: 0px 0px 5px 15px;
+  border: #9b9a9a;
+  border: #cac6c6;
+}
+.inputsid {
+  display: flex;
+}
+.contenedorfiltart {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.botonReportes {
+  margin-right: 1%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.botones {
+  margin: 0px 10px 0px 20px;
+}
+/* Cuadro mas chico<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+.flexxChico {
+  display: flex;
+  flex-direction: column;
+}
+.reciclaje {
+  text-align: center;
+  font-size: 3em;
+  color: #2ece26;
+}
+.navChico {
+  margin-top: 30px;
+}
+.imareci {
+  width: 10%;
+  margin: 0;
+}
+/* Cuadro mas chico<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+.scroll-container {
+  max-height: 500px; /* Ajusta la altura máxima según tus necesidades */
+  overflow-y: auto;
+  padding: 0px 15px 0px 15px;
+}
+
+.filtros {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*formulario*/
+.formFlex {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+.flexCuadros {
+  display: flex;
+}
+.form-input {
+  width: 35%;
+  margin: 20px;
+}
+.form-descrp {
+  width: 85%;
+  margin-left: 20px;
+}
+.materiaP {
+  color: #9b9a9a;
+  margin: 0%;
+}
+.materiaP h5 {
+  margin: 0%;
+}
+/*formulario*/
+
+/* Productos*/
+.procBotonos {
+  display: flex;
+  justify-content: flex-end;
+}
+/* Productos*/
+
+.Modal {
+  max-width: 75% !important;
+}
+.imgReporte {
+  text-align: center;
+}
+
+.procBotonos div Button a {
+  text-decoration: none;
+  color: #ffffff;
+}
