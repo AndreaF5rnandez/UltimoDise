@@ -166,7 +166,6 @@ export class ListaUsuario extends React.Component {
                   <h2>Usuarios</h2>
                 </div>
                 <div className="procBotonos">
-
                   <div style={{ marginRight: "20px" }}>
                     <Button color="success">
                       <a class="my-link" href="AdmRegUsuario">
@@ -175,7 +174,7 @@ export class ListaUsuario extends React.Component {
                       </a>
                     </Button>
                   </div>
-                  <div >
+                  <div>
                     <Button
                       color="success"
                       onClick={() => this.mostartModalReporte()}
@@ -354,7 +353,7 @@ export class ListaUsuario extends React.Component {
               >
                 Editar
               </Button>
-              <Button onClick={() => this.ocultarModalEditar()} >
+              <Button onClick={() => this.ocultarModalEditar()}>
                 Cancelar
               </Button>
             </ModalFooter>
@@ -369,7 +368,7 @@ export class ListaUsuario extends React.Component {
             <ModalBody>
               <FormGroup>
                 <label>ID:</label>
-                <h3
+                <input
                   value={this.state.form.id_usuario}
                   className="form-control"
                   readOnly
@@ -379,55 +378,60 @@ export class ListaUsuario extends React.Component {
 
               <FormGroup>
                 <label>Nom_Apell:</label>
-                <h3
+                <input
                   value={this.state.form.nomYapell}
                   onChange={this.handleChange}
                   className="form-control"
                   name="nomYapell"
                   type="text"
+                  readOnly
                 />
               </FormGroup>
 
               <FormGroup>
                 <label>Area:</label>
-                <h3
+                <input
                   value={this.state.form.tipo_usuario}
                   onChange={this.handleChange}
                   className="form-control"
                   name="tipo_usuario"
                   type="text"
+                  readOnly
                 />
               </FormGroup>
 
               <FormGroup>
                 <label>Tel:</label>
-                <h3
+                <input
                   value={this.state.form.telefono}
                   onChange={this.handleChange}
                   className="form-control"
                   name="telefono"
                   type="text"
+                  readOnly
                 />
               </FormGroup>
               <FormGroup>
                 <label>Correo:</label>
-                <h3
+                <input
                   value={this.state.form.email}
                   onChange={this.handleChange}
                   className="form-control"
                   name="email"
                   type="text"
+                  readOnly
                 />
               </FormGroup>
 
               <FormGroup>
                 <label>Alta:</label>
-                <h3
+                <input
                   value={this.state.form.fecha_registro}
                   onChange={this.handleChange}
                   className="form-control"
                   name="fecha_registro"
                   type="text"
+                  readOnly
                 />
               </FormGroup>
             </ModalBody>
@@ -505,9 +509,7 @@ export class ListaUsuario extends React.Component {
               >
                 Buscar
               </Button>
-              <Button onClick={() => this.ocultarModalFiltrar()}>
-                salir
-              </Button>
+              <Button onClick={() => this.ocultarModalFiltrar()}>salir</Button>
             </ModalFooter>
           </Modal>
           <Modal size="lg" className="Modal" isOpen={this.state.modalReporte}>
@@ -530,12 +532,13 @@ export class ListaUsuario extends React.Component {
               </div>
             </ModalBody>
             <ModalFooter>
-              <Button onClick={() => this.ocultarModalReporte()} color="success">
+              <Button
+                onClick={() => this.ocultarModalReporte()}
+                color="success"
+              >
                 Imprimir
               </Button>
-              <Button onClick={() => this.ocultarModalReporte()} >
-                salir
-              </Button>
+              <Button onClick={() => this.ocultarModalReporte()}>salir</Button>
             </ModalFooter>
           </Modal>
         </div>

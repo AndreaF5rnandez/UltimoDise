@@ -36,6 +36,7 @@ export class ListaPedidos extends React.Component {
     modalEditar: false,
     modalFiltrar: false,
     modalReporte: false,
+    modalINFO: false,
   };
   handleChange = (e) => {
     this.setState({
@@ -45,6 +46,14 @@ export class ListaPedidos extends React.Component {
       },
     });
   };
+
+  mostartModalINFO = (registro) => {
+    this.setState({ modalINFO: true, form: registro });
+  };
+  ocultarModalINFO = () => {
+    this.setState({ modalINFO: false });
+  };
+
   mostartModalReporte = () => {
     this.setState({ modalReporte: true });
   };
@@ -195,6 +204,7 @@ export class ListaPedidos extends React.Component {
                             class="bi bi-journals"
                             viewBox="0 0 16 16"
                             type="button"
+                            onClick={() => this.mostartModalINFO(elemento)}
                             data-bs-whatever="@getbootstrap"
                           >
                             <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2z" />
@@ -240,6 +250,92 @@ export class ListaPedidos extends React.Component {
             </Container>
           </div>
 
+          <Modal isOpen={this.state.modalINFO}>
+            <ModalHeader>
+              <div>
+                <h3>Materia Prima</h3>
+              </div>
+            </ModalHeader>
+            <ModalBody>
+              <FormGroup>
+                <label>NroPedido:</label>
+                <input
+                  value={this.state.form.NroPedido}
+                  className="form-control"
+                  readOnly
+                  type="text"
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <label>Fecha:</label>
+                <input
+                  value={this.state.form.Fecha}
+                  onChange={this.handleChange}
+                  className="form-control"
+                  name="Fecha"
+                  type="text"
+                  readOnly
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <label>Cliente:</label>
+                <input
+                  value={this.state.form.Cliente}
+                  onChange={this.handleChange}
+                  className="form-control"
+                  name="Cliente"
+                  type="text"
+                  readOnly
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <label>Producto:</label>
+                <input
+                  value={this.state.form.Producto}
+                  onChange={this.handleChange}
+                  className="form-control"
+                  name="Producto"
+                  type="text"
+                  readOnly
+                />
+              </FormGroup>
+              <FormGroup>
+                <label>Cantidad:</label>
+                <input
+                  value={this.state.form.Cantidad}
+                  onChange={this.handleChange}
+                  className="form-control"
+                  name="Cantidad"
+                  type="text"
+                  readOnly
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <label for="inputState" className="form-label"></label>
+                <label for="inputGenero" className="form-label">
+                  Estado:
+                </label>
+                <select
+                  value={this.state.form.Estado}
+                  id="inputState"
+                  className="form-select imput"
+                  name="Estado"
+                >
+                  <option>...</option>
+                  <option selected>Fabricacion</option>
+                  <option selected>Listo para entregar</option>
+                </select>
+              </FormGroup>
+            </ModalBody>
+            <ModalFooter>
+              <Button onClick={() => this.ocultarModalINFO()}>Cancelar</Button>
+            </ModalFooter>
+          </Modal>
+
           <Modal isOpen={this.state.modalEditar}>
             <ModalHeader>
               <div>
@@ -252,7 +348,6 @@ export class ListaPedidos extends React.Component {
                 <input
                   value={this.state.form.NroPedido}
                   className="form-control"
-                  readOnly
                   type="text"
                 />
               </FormGroup>
@@ -324,7 +419,7 @@ export class ListaPedidos extends React.Component {
               >
                 Editar
               </Button>
-              <Button onClick={() => this.ocultarModalEditar()} >
+              <Button onClick={() => this.ocultarModalEditar()}>
                 Cancelar
               </Button>
             </ModalFooter>
@@ -355,10 +450,7 @@ export class ListaPedidos extends React.Component {
                 />
               </div>
               <div className="ID">
-                <button
-                  class="btn btn-outline-secondary "
-                  type="button"
-                >
+                <button class="btn btn-outline-secondary " type="button">
                   Fecha
                 </button>
                 <input
@@ -376,9 +468,7 @@ export class ListaPedidos extends React.Component {
               >
                 Buscar
               </Button>
-              <Button onClick={() => this.ocultarModalFiltrar()} >
-                salir
-              </Button>
+              <Button onClick={() => this.ocultarModalFiltrar()}>salir</Button>
             </ModalFooter>
           </Modal>
 
@@ -392,23 +482,19 @@ export class ListaPedidos extends React.Component {
               <img src={imgReporMP} />
             </ModalBody>
             <ModalFooter>
-              <Button onClick={() => this.ocultarModalReporte()} color="success">
+              <Button
+                onClick={() => this.ocultarModalReporte()}
+                color="success"
+              >
                 Imprimir
               </Button>
-              <Button onClick={() => this.ocultarModalReporte()} >
-                salir
-              </Button>
+              <Button onClick={() => this.ocultarModalReporte()}>salir</Button>
             </ModalFooter>
           </Modal>
         </div>
-      </div >
+      </div>
     );
   }
 }
 
 export default ListaPedidos;
-
-
-
-
-

@@ -29,6 +29,7 @@ export class LineaCliAdm extends React.Component {
     modalEditar: false,
     modalFiltrar: false,
     modalReporte: false,
+    modalINFO: false,
   };
   handleChange = (e) => {
     this.setState({
@@ -38,6 +39,14 @@ export class LineaCliAdm extends React.Component {
       },
     });
   };
+
+  mostartModalINFO = (registro) => {
+    this.setState({ modalINFO: true, form: registro });
+  };
+  ocultarModalINFO = () => {
+    this.setState({ modalINFO: false });
+  };
+
   mostartModalReporte = () => {
     this.setState({ modalReporte: true });
   };
@@ -131,7 +140,6 @@ export class LineaCliAdm extends React.Component {
                 </div>
 
                 <div className="procBotonos">
-
                   <div style={{ marginRight: "20px" }}>
                     <Button color="success">
                       <a class="my-link" href="RegCliente">
@@ -140,7 +148,7 @@ export class LineaCliAdm extends React.Component {
                       </a>
                     </Button>
                   </div>
-                  <div >
+                  <div>
                     <Button
                       color="success"
                       onClick={() => this.mostartModalReporte()}
@@ -163,7 +171,6 @@ export class LineaCliAdm extends React.Component {
                       background: "#cac6c6",
                     }}
                   >
-
                     <tr>
                       <th>ID</th>
                       <th>Nombre</th>
@@ -192,6 +199,7 @@ export class LineaCliAdm extends React.Component {
                             class="bi bi-journals"
                             viewBox="0 0 16 16"
                             type="button"
+                            onClick={() => this.mostartModalINFO(elemento)}
                             data-bs-whatever="@getbootstrap"
                           >
                             <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2z" />
@@ -237,10 +245,10 @@ export class LineaCliAdm extends React.Component {
             </Container>
           </div>
 
-          <Modal isOpen={this.state.modalEditar}>
+          <Modal isOpen={this.state.modalINFO}>
             <ModalHeader>
               <div>
-                <h3>Editar Clientes</h3>
+                <h3>Cliente</h3>
               </div>
             </ModalHeader>
             <ModalBody>
@@ -250,6 +258,74 @@ export class LineaCliAdm extends React.Component {
                   value={this.state.form.ID}
                   className="form-control"
                   readOnly
+                  type="text"
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <label>Nombre:</label>
+                <input
+                  value={this.state.form.nombre}
+                  onChange={this.handleChange}
+                  className="form-control"
+                  name="nombre"
+                  type="text"
+                  readOnly
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <label>Apellido:</label>
+                <input
+                  value={this.state.form.apellido}
+                  onChange={this.handleChange}
+                  className="form-control"
+                  name="apellido"
+                  type="text"
+                  readOnly
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <label>Correo:</label>
+                <input
+                  value={this.state.form.correo}
+                  onChange={this.handleChange}
+                  className="form-control"
+                  name="correo"
+                  type="text"
+                  readOnly
+                />
+              </FormGroup>
+              <FormGroup>
+                <label>Telefono:</label>
+                <input
+                  value={this.state.form.telefono}
+                  onChange={this.handleChange}
+                  className="form-control"
+                  name="telefono"
+                  type="text"
+                  readOnly
+                />
+              </FormGroup>
+            </ModalBody>
+            <ModalFooter>
+              <Button onClick={() => this.ocultarModalINFO()}>Cancelar</Button>
+            </ModalFooter>
+          </Modal>
+
+          <Modal isOpen={this.state.modalEditar}>
+            <ModalHeader>
+              <div>
+                <h3>Editar Cliente</h3>
+              </div>
+            </ModalHeader>
+            <ModalBody>
+              <FormGroup>
+                <label>ID:</label>
+                <input
+                  value={this.state.form.ID}
+                  className="form-control"
                   type="text"
                 />
               </FormGroup>
@@ -296,7 +372,6 @@ export class LineaCliAdm extends React.Component {
                   type="text"
                 />
               </FormGroup>
-
             </ModalBody>
             <ModalFooter>
               <Button
@@ -305,7 +380,7 @@ export class LineaCliAdm extends React.Component {
               >
                 Editar
               </Button>
-              <Button onClick={() => this.ocultarModalEditar()} >
+              <Button onClick={() => this.ocultarModalEditar()}>
                 Cancelar
               </Button>
             </ModalFooter>
@@ -373,9 +448,7 @@ export class LineaCliAdm extends React.Component {
               >
                 Buscar
               </Button>
-              <Button onClick={() => this.ocultarModalFiltrar()} >
-                salir
-              </Button>
+              <Button onClick={() => this.ocultarModalFiltrar()}>salir</Button>
             </ModalFooter>
           </Modal>
 
@@ -389,16 +462,17 @@ export class LineaCliAdm extends React.Component {
               <img src={imgReporMP} />
             </ModalBody>
             <ModalFooter>
-              <Button onClick={() => this.ocultarModalReporte()} color="success">
+              <Button
+                onClick={() => this.ocultarModalReporte()}
+                color="success"
+              >
                 Imprimir
               </Button>
-              <Button onClick={() => this.ocultarModalReporte()} >
-                salir
-              </Button>
+              <Button onClick={() => this.ocultarModalReporte()}>salir</Button>
             </ModalFooter>
           </Modal>
         </div>
-      </div >
+      </div>
     );
   }
 }

@@ -54,12 +54,6 @@ export class ListaMateriaPrima extends React.Component {
     this.setState({ modalINFO: false });
   };
 
-
-
-
-
-
-
   mostartModalReporte = () => {
     this.setState({ modalReporte: true });
   };
@@ -326,17 +320,9 @@ export class ListaMateriaPrima extends React.Component {
               </FormGroup>
             </ModalBody>
             <ModalFooter>
-              <Button onClick={() => this.ocultarModalINFO()} >
-                Cancelar
-              </Button>
+              <Button onClick={() => this.ocultarModalINFO()}>Cancelar</Button>
             </ModalFooter>
           </Modal>
-
-
-
-
-
-
 
           <Modal isOpen={this.state.modalEditar}>
             <ModalHeader>
@@ -415,7 +401,7 @@ export class ListaMateriaPrima extends React.Component {
               >
                 Editar
               </Button>
-              <Button onClick={() => this.ocultarModalEditar()} >
+              <Button onClick={() => this.ocultarModalEditar()}>
                 Cancelar
               </Button>
             </ModalFooter>
@@ -529,9 +515,7 @@ export class ListaMateriaPrima extends React.Component {
               >
                 Buscar
               </Button>
-              <Button onClick={() => this.ocultarModalFiltrar()}>
-                salir
-              </Button>
+              <Button onClick={() => this.ocultarModalFiltrar()}>salir</Button>
             </ModalFooter>
           </Modal>
 
@@ -555,12 +539,13 @@ export class ListaMateriaPrima extends React.Component {
               </div>
             </ModalBody>
             <ModalFooter>
-              <Button onClick={() => this.ocultarModalReporte()} color="success">
+              <Button
+                onClick={() => this.ocultarModalReporte()}
+                color="success"
+              >
                 Imprimir
               </Button>
-              <Button onClick={() => this.ocultarModalReporte()} >
-                salir
-              </Button>
+              <Button onClick={() => this.ocultarModalReporte()}>salir</Button>
             </ModalFooter>
           </Modal>
         </div>

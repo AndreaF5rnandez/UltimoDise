@@ -37,6 +37,7 @@ export class Productoss extends React.Component {
     modalEditar: false,
     modalFiltrar: false,
     modalReporte: false,
+    modalINFO: false,
   };
   handleChange = (e) => {
     this.setState({
@@ -46,6 +47,14 @@ export class Productoss extends React.Component {
       },
     });
   };
+
+  mostartModalINFO = (registro) => {
+    this.setState({ modalINFO: true, form: registro });
+  };
+  ocultarModalINFO = () => {
+    this.setState({ modalINFO: false });
+  };
+
   mostartModalReporte = () => {
     this.setState({ modalReporte: true });
   };
@@ -195,6 +204,7 @@ export class Productoss extends React.Component {
                             class="bi bi-journals"
                             viewBox="0 0 16 16"
                             type="button"
+                            onClick={() => this.mostartModalINFO(elemento)}
                             data-bs-whatever="@getbootstrap"
                           >
                             <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2z" />
@@ -240,6 +250,83 @@ export class Productoss extends React.Component {
             </Container>
           </div>
 
+          <Modal isOpen={this.state.modalINFO}>
+            <ModalHeader>
+              <div>
+                <h3>Producto</h3>
+              </div>
+            </ModalHeader>
+            <ModalBody>
+              <FormGroup>
+                <label>id:</label>
+                <input
+                  value={this.state.form.id}
+                  className="form-control"
+                  readOnly
+                  type="text"
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <label>Nombre:</label>
+                <input
+                  value={this.state.form.nombre}
+                  onChange={this.handleChange}
+                  className="form-control"
+                  name="Nombre"
+                  type="text"
+                  readOnly
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <label>tipo:</label>
+                <input
+                  value={this.state.form.tipo}
+                  className="form-control"
+                  name="tipo"
+                  type="text"
+                  readOnly
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <label>cantidad:</label>
+                <input
+                  value={this.state.form.cantidad}
+                  className="form-control"
+                  name="cantidad"
+                  type="text"
+                  readOnly
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <label>FIProduccion:</label>
+                <input
+                  value={this.state.form.FIProduccion}
+                  className="form-control"
+                  name="FIProduccion"
+                  type="text"
+                  readOnly
+                />
+              </FormGroup>
+              <FormGroup>
+                <label>FFProduccion:</label>
+                <input
+                  value={this.state.form.FFProduccion}
+                  className="form-control"
+                  name="FFProduccion"
+                  type="text"
+                  readOnly
+                />
+              </FormGroup>
+            </ModalBody>
+            <ModalFooter>
+              <Button onClick={() => this.ocultarModalINFO()}>Cancelar</Button>
+            </ModalFooter>
+          </Modal>
+
           <Modal isOpen={this.state.modalEditar}>
             <ModalHeader>
               <div>
@@ -252,7 +339,6 @@ export class Productoss extends React.Component {
                 <input
                   value={this.state.form.id}
                   className="form-control"
-                  readOnly
                   type="text"
                 />
               </FormGroup>
@@ -314,7 +400,7 @@ export class Productoss extends React.Component {
               >
                 Editar
               </Button>
-              <Button onClick={() => this.ocultarModalEditar()} >
+              <Button onClick={() => this.ocultarModalEditar()}>
                 Cancelar
               </Button>
             </ModalFooter>
@@ -428,9 +514,7 @@ export class Productoss extends React.Component {
               >
                 Buscar
               </Button>
-              <Button onClick={() => this.ocultarModalFiltrar()} >
-                salir
-              </Button>
+              <Button onClick={() => this.ocultarModalFiltrar()}>salir</Button>
             </ModalFooter>
           </Modal>
           <Modal size="lg" className="Modal" isOpen={this.state.modalReporte}>
@@ -445,12 +529,13 @@ export class Productoss extends React.Component {
               </div>
             </ModalBody>
             <ModalFooter>
-              <Button onClick={() => this.ocultarModalReporte()} color="success">
+              <Button
+                onClick={() => this.ocultarModalReporte()}
+                color="success"
+              >
                 Imprimir
               </Button>
-              <Button onClick={() => this.ocultarModalReporte()} >
-                salir
-              </Button>
+              <Button onClick={() => this.ocultarModalReporte()}>salir</Button>
             </ModalFooter>
           </Modal>
         </div>{" "}

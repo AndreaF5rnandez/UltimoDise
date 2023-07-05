@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 import imgReporMP from "./asset/img/reporteMP.jpeg";
 import { FaFilter } from "react-icons/fa";
-import {compras  } from "./compras"
+import { compras } from "./compras";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   Table,
@@ -19,7 +19,7 @@ export class ListaVentas extends React.Component {
     materia: compras,
     form: {
       id_compra: "",
-      fecha_compra:"",
+      fecha_compra: "",
       proveedor: "",
       articulo: "",
       cantidad: 0,
@@ -29,6 +29,7 @@ export class ListaVentas extends React.Component {
     modalEditar: false,
     modalFiltrar: false,
     modalReporte: false,
+    modalINFO: false,
   };
   handleChange = (e) => {
     this.setState({
@@ -38,6 +39,14 @@ export class ListaVentas extends React.Component {
       },
     });
   };
+
+  mostartModalINFO = (registro) => {
+    this.setState({ modalINFO: true, form: registro });
+  };
+  ocultarModalINFO = () => {
+    this.setState({ modalINFO: false });
+  };
+
   mostartModalReporte = () => {
     this.setState({ modalReporte: true });
   };
@@ -136,7 +145,7 @@ export class ListaVentas extends React.Component {
                       color="success"
                       onClick={() => this.mostartModalReporte()}
                     >
-                      Imprimir {" "}
+                      Imprimir{" "}
                     </Button>
                   </div>
                 </div>
@@ -182,6 +191,7 @@ export class ListaVentas extends React.Component {
                             class="bi bi-journals"
                             viewBox="0 0 16 16"
                             type="button"
+                            onClick={() => this.mostartModalINFO(elemento)}
                             data-bs-whatever="@getbootstrap"
                           >
                             <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2z" />
@@ -226,11 +236,11 @@ export class ListaVentas extends React.Component {
               </div>
             </Container>
           </div>
-       
-          <Modal isOpen={this.state.modalEditar}>
+
+          <Modal isOpen={this.state.modalINFO}>
             <ModalHeader>
               <div>
-                <h3>Editar Compras</h3>
+                <h3>Compra</h3>
               </div>
             </ModalHeader>
             <ModalBody>
@@ -240,6 +250,85 @@ export class ListaVentas extends React.Component {
                   value={this.state.form.id_compra}
                   className="form-control"
                   readOnly
+                  type="text"
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <label>Fecha:</label>
+                <input
+                  value={this.state.form.fecha_compra}
+                  onChange={this.handleChange}
+                  className="form-control"
+                  name="fecha_compra"
+                  type="text"
+                  readOnly
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <label>Proveedor:</label>
+                <input
+                  value={this.state.form.proveedor}
+                  onChange={this.handleChange}
+                  className="form-control"
+                  name="proveedor"
+                  type="text"
+                  readOnly
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <label>Articulo:</label>
+                <input
+                  value={this.state.form.articulo}
+                  onChange={this.handleChange}
+                  className="form-control"
+                  name="articulo"
+                  type="text"
+                  readOnly
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <label>Cantidad:</label>
+                <input
+                  value={this.state.form.cantidad}
+                  className="form-control"
+                  name="cantidad"
+                  type="text"
+                  readOnly
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <label>Total:</label>
+                <input
+                  value={this.state.form.total}
+                  className="form-control"
+                  name="total"
+                  type="text"
+                  readOnly
+                />
+              </FormGroup>
+            </ModalBody>
+            <ModalFooter>
+              <Button onClick={() => this.ocultarModalINFO()}>Cancelar</Button>
+            </ModalFooter>
+          </Modal>
+
+          <Modal isOpen={this.state.modalEditar}>
+            <ModalHeader>
+              <div>
+                <h3>Editar Compra</h3>
+              </div>
+            </ModalHeader>
+            <ModalBody>
+              <FormGroup>
+                <label>id:</label>
+                <input
+                  value={this.state.form.id_compra}
+                  className="form-control"
                   type="text"
                 />
               </FormGroup>
@@ -304,7 +393,7 @@ export class ListaVentas extends React.Component {
               >
                 Editar
               </Button>
-              <Button onClick={() => this.ocultarModalEditar()} >
+              <Button onClick={() => this.ocultarModalEditar()}>
                 Cancelar
               </Button>
             </ModalFooter>
@@ -418,9 +507,7 @@ export class ListaVentas extends React.Component {
               >
                 Buscar
               </Button>
-              <Button onClick={() => this.ocultarModalFiltrar()} >
-                salir
-              </Button>
+              <Button onClick={() => this.ocultarModalFiltrar()}>salir</Button>
             </ModalFooter>
           </Modal>
 
@@ -444,12 +531,13 @@ export class ListaVentas extends React.Component {
               </div>
             </ModalBody>
             <ModalFooter>
-              <Button onClick={() => this.ocultarModalReporte()} color="success">
+              <Button
+                onClick={() => this.ocultarModalReporte()}
+                color="success"
+              >
                 Imprimir
               </Button>
-              <Button onClick={() => this.ocultarModalReporte()} >
-                salir
-              </Button>
+              <Button onClick={() => this.ocultarModalReporte()}>salir</Button>
             </ModalFooter>
           </Modal>
         </div>
